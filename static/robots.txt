@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+sitemap: https://ridhozhr10.github.io/sitemap.xml
