@@ -1,8 +1,8 @@
 /* global tw */
 import React from 'react';
 import styled from 'react-emotion';
-import 'typeface-cantata-one';
-import 'typeface-open-sans';
+import "typeface-open-sans";
+import "typeface-montserrat";
 import { Parallax, ParallaxLayer } from 'react-spring/dist/addons';
 import SEO from '../components/SEO';
 import SVG from '../components/SVG';

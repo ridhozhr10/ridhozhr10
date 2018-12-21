@@ -1,8 +1,9 @@
 /* global tw */
 import React from 'react';
 import styled from 'react-emotion';
-import 'typeface-cantata-one';
+import { Link } from "gatsby";
 import 'typeface-open-sans';
+import "typeface-montserrat";
 import { Parallax, ParallaxLayer } from 'react-spring/dist/addons';
 import SVG from '../components/SVG';
 import { rotate, UpDown, UpDownWide, waveAnimation } from '../styles/animations';
@@ -77,7 +78,7 @@ const Index = () => (
           <BigTitle>
             Well, <br /> I think you gone missing
           </BigTitle>
-          <Subtitle>But dont worry, just go <a href="/">back</a> here</Subtitle>
+          <Subtitle>But dont worry, just go <Link to={""}>here</Link></Subtitle>
         </Hero>
       </Content>
       <DividerMiddle
