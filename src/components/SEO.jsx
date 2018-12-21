@@ -2,12 +2,12 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import config from '../../config/website';
 
-const SEO = () => {
-  const title = config.siteTitle;
-  const description = config.siteDescription;
+const SEO = ({ pageTitle, pageDescription }) => {
+  const title = !!pageTitle ? "Ridho Azhar - " + pageTitle : config.siteTitle;
+  const description = !!pageDescription ? pageDescription : config.siteDescription;
   const realPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix;
   const image = config.siteUrl + realPrefix + config.siteLogo;
-  const blogURL = config.siteUrl + config.pathPrefix;
+  const blogURL = config.siteUrl + config.pathPrefix + "blog";
   const schemaOrgJSONLD = [
     {
       '@context': 'http://schema.org',
