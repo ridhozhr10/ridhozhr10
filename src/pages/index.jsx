@@ -11,7 +11,6 @@ import ProjectCard from '../components/ProjectCard';
 import { 
   AboutMeWrapper, 
   AboutMeCardGridTwoThird,
-  AboutMeCardGridHalf,
   AboutMeCardGridFull,
   AboutMeCardGridOneThird
 } from '../components/AboutMeCard';
