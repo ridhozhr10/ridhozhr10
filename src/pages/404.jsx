@@ -1,16 +1,16 @@
 /* global tw */
 import React from 'react';
 import styled from 'react-emotion';
-import { Link } from "gatsby";
-import 'typeface-open-sans';
+import "typeface-open-sans";
 import "typeface-montserrat";
 import { Parallax, ParallaxLayer } from 'react-spring/dist/addons';
+import SEO from '../components/SEO';
 import SVG from '../components/SVG';
-import { rotate, UpDown, UpDownWide, waveAnimation } from '../styles/animations';
+import { UpDown, UpDownWide } from '../styles/animations';
 import { hidden } from '../styles/utils';
 import { colors } from '../../tailwind';
-import triangle from '../images/triangle.svg';
 import '../styles/global';
+import { Link } from 'gatsby';
 
 const Divider = styled(ParallaxLayer)`
   ${tw('absolute w-full h-full')};
@@ -19,10 +19,6 @@ const Divider = styled(ParallaxLayer)`
     fill: ${props => props.fill};
   }
   clip-path: ${props => props.clipPath};
-`;
-
-const DividerMiddle = styled(Divider)`
-  clip-path: polygon(0 15%, 100% 25%, 100% 85%, 0 75%);
 `;
 
 const Content = styled(ParallaxLayer)`
@@ -43,8 +39,13 @@ const Subtitle = styled.p`
   text-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
 `;
 
+const pageDescription = `
+  a web developer and technology maniac blog, also someone who like to hack their life.
+`;
+
 const Index = () => (
   <React.Fragment>
+    <SEO pageTitle="Blog" pageDescription={pageDescription}/>
     <Parallax pages={1}>
       <Divider speed={0.2} offset={0}>
         <UpDown>
@@ -76,17 +77,11 @@ const Index = () => (
       <Content speed={0.4} offset={0}>
         <Hero>
           <BigTitle>
-            Well, <br /> I think you gone missing
+            Oops, this Page
           </BigTitle>
-          <Subtitle>But dont worry, just go <Link to={""}>here</Link></Subtitle>
+          <Subtitle>or (maybe) you gone missing. <Link to="">Go Back</Link></Subtitle>
         </Hero>
       </Content>
-      <DividerMiddle
-        bg="linear-gradient(to right, SlateBlue 0%, DeepSkyBlue 100%)"
-        speed={-0.2}
-        offset={1.1}
-        factor={2}
-      />
     </Parallax>
   </React.Fragment>
 );

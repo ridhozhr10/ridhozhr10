@@ -1,6 +1,6 @@
 /* global tw */
 import React from 'react';
-import styled from 'react-emotion';
+import styled, { css } from 'react-emotion';
 import { Link } from 'gatsby';
 import 'typeface-open-sans';
 import "typeface-montserrat";
@@ -8,6 +8,13 @@ import { Parallax, ParallaxLayer } from 'react-spring/dist/addons';
 import SEO from '../components/SEO';
 import SVG from '../components/SVG';
 import ProjectCard from '../components/ProjectCard';
+import { 
+  AboutMeWrapper, 
+  AboutMeCardGridTwoThird,
+  AboutMeCardGridHalf,
+  AboutMeCardGridFull,
+  AboutMeCardGridOneThird
+} from '../components/AboutMeCard';
 import { rotate, UpDown, UpDownWide, waveAnimation } from '../styles/animations';
 import { hidden } from '../styles/utils';
 import { colors } from '../../tailwind';
@@ -128,7 +135,7 @@ const Footer = styled.footer`
 const VerySmallText = styled.span`
   ${tw('text-sm font-sans block')};
 `;
-
+  
 const Index = () => (
   <React.Fragment>
     <SEO />
@@ -295,48 +302,25 @@ const Index = () => (
           </Subtitle>
         </Hero>
       </Content>
-      <DividerMiddle
+      <DividerMiddle speed={-0.25}
         bg="linear-gradient(to right, SlateBlue 0%, DeepSkyBlue 100%)"
-        speed={-0.2}
-        offset={1.1}
-        factor={2}
-      />
+        offset={0.71} factor={3} />
       <Content speed={0.4} offset={1.2} factor={2}>
         <Inner>
-          <Title>Projects</Title>
-          <ProjectsWrapper>
-            <ProjectCard
-              title="Freiheit"
-              link="https://www.behance.net/gallery/58937147/Freiheit"
-              bg="linear-gradient(to right, #D4145A 0%, #FBB03B 100%)"
-            >
-              This project is my entry to Adobe's #ChallengeYourPerspective
-              contest.
-            </ProjectCard>
-            <ProjectCard
-              title="Harry Potter"
-              link="https://www.behance.net/gallery/52915793/Harry-Potter"
-              bg="linear-gradient(to right, #662D8C 0%, #ED1E79 100%)"
-            >
-              I entered the DOCMA 2017 award with this Harry Potter inspired
-              image.
-            </ProjectCard>
-            <ProjectCard
-              title="Tomb Raider"
-              link="https://www.behance.net/gallery/43907099/Tomb-Raider"
-              bg="linear-gradient(to right, #009245 0%, #FCEE21 100%)"
-            >
-              Recreation of a Tomb Raider Wallpaper (Fan Art)
-            </ProjectCard>
-            <ProjectCard
-              title="Eagle"
-              link="https://www.behance.net/gallery/38068151/Eagle"
-              bg="linear-gradient(to right, #D585FF 0%, #00FFEE 100%)"
-            >
-              A fantasy image manipulation relocating the habitat of wild
-              animals.
-            </ProjectCard>
-          </ProjectsWrapper>
+          <Title>About Me</Title>
+          <AboutMeWrapper>
+            <AboutMeCardGridTwoThird title="Personal Information">
+              hello world
+            </AboutMeCardGridTwoThird>
+            <AboutMeCardGridOneThird title="Education">
+              hello world
+            </AboutMeCardGridOneThird>
+          </AboutMeWrapper>
+          <AboutMeWrapper>
+            <AboutMeCardGridFull title="Skills">
+              hello world
+            </AboutMeCardGridFull>
+          </AboutMeWrapper>
         </Inner>
       </Content>
       <Divider speed={0.1} offset={1} factor={2}>
@@ -574,9 +558,11 @@ const Index = () => (
           </ContactText>
         </Inner>
         <Footer>
-          &copy; 2018 by Gatsby Starter Portfolio Cara.{" "}
-          <a href="https://github.com/LekoArts/gatsby-starter-portfolio-cara">
-            Github Repository
+          &copy; 2018 by Ridho Azhar - Personal.{" "}<br />
+          <a target="_blank" href="https://github.com/ridhozhr10/ridhozhr10.github.io/tree/source">
+            Source Code
+          </a> - <a target="_blank" href="https://github.com/ridhozhr10/ridhozhr10.github.io/blob/source/LICENSE">
+            License
           </a>
           .
         </Footer>
