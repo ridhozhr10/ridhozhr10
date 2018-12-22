@@ -12,7 +12,8 @@ import {
   AboutMeWrapper, 
   AboutMeCardGridTwoThird,
   AboutMeCardGridFull,
-  AboutMeCardGridOneThird
+  AboutMeCardGridOneThird,
+  AboutMeCardGridHalf
 } from '../components/AboutMeCard';
 import { rotate, UpDown, UpDownWide, waveAnimation } from '../styles/animations';
 import { hidden } from '../styles/utils';
@@ -134,7 +135,7 @@ const Footer = styled.footer`
 const VerySmallText = styled.span`
   ${tw('text-sm font-sans block')};
 `;
-  
+
 const Index = () => (
   <React.Fragment>
     <SEO />
@@ -306,19 +307,30 @@ const Index = () => (
         offset={0.71} factor={3} />
       <Content speed={0.4} offset={1.2} factor={2}>
         <Inner>
-          <Title>About Me</Title>
+          <Title>Experience</Title>
           <AboutMeWrapper>
-            <AboutMeCardGridTwoThird title="Personal Information">
-              hello world
-            </AboutMeCardGridTwoThird>
-            <AboutMeCardGridOneThird title="Education">
-              hello world
-            </AboutMeCardGridOneThird>
+            <AboutMeCardGridHalf title="Sample">
+              a Sample yo!!
+            </AboutMeCardGridHalf>
+            <AboutMeCardGridHalf title="Sample" >
+              a Sample yo!!
+            </AboutMeCardGridHalf>
           </AboutMeWrapper>
           <AboutMeWrapper>
-            <AboutMeCardGridFull title="Skills">
-              hello world
-            </AboutMeCardGridFull>
+            <AboutMeCardGridHalf title="Sample">
+              a Sample yo!!
+            </AboutMeCardGridHalf>
+            <AboutMeCardGridHalf title="Sample" >
+              a Sample yo!!
+            </AboutMeCardGridHalf>
+          </AboutMeWrapper>
+          <AboutMeWrapper>
+            <AboutMeCardGridHalf title="Sample">
+              a Sample yo!!
+            </AboutMeCardGridHalf>
+            <AboutMeCardGridHalf title="Sample" >
+              a Sample yo!!
+            </AboutMeCardGridHalf>
           </AboutMeWrapper>
         </Inner>
       </Content>
