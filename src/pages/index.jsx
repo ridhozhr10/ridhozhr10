@@ -1,13 +1,12 @@
 /* global tw */
 import React from 'react';
-import styled, { css } from 'react-emotion';
-import { Link } from 'gatsby';
+import styled from 'react-emotion';
+import { Link, graphql } from 'gatsby';
 import 'typeface-open-sans';
 import "typeface-montserrat";
 import { Parallax, ParallaxLayer } from 'react-spring/dist/addons';
 import SEO from '../components/SEO';
 import SVG from '../components/SVG';
-import ProjectCard from '../components/ProjectCard';
 import { 
   AboutMeWrapper, 
   AboutMeCardGridTwoThird,
@@ -136,7 +135,7 @@ const VerySmallText = styled.span`
   ${tw('text-sm font-sans block')};
 `;
 
-const Index = () => (
+const Index = ({data}) => (
   <React.Fragment>
     <SEO />
     <Parallax pages={5}>
@@ -308,30 +307,14 @@ const Index = () => (
       <Content speed={0.4} offset={1.2} factor={2}>
         <Inner>
           <Title>Experience</Title>
-          <AboutMeWrapper>
-            <AboutMeCardGridHalf title="Sample">
-              a Sample yo!!
-            </AboutMeCardGridHalf>
-            <AboutMeCardGridHalf title="Sample" >
-              a Sample yo!!
-            </AboutMeCardGridHalf>
-          </AboutMeWrapper>
-          <AboutMeWrapper>
-            <AboutMeCardGridHalf title="Sample">
-              a Sample yo!!
-            </AboutMeCardGridHalf>
-            <AboutMeCardGridHalf title="Sample" >
-              a Sample yo!!
-            </AboutMeCardGridHalf>
-          </AboutMeWrapper>
-          <AboutMeWrapper>
-            <AboutMeCardGridHalf title="Sample">
-              a Sample yo!!
-            </AboutMeCardGridHalf>
-            <AboutMeCardGridHalf title="Sample" >
-              a Sample yo!!
-            </AboutMeCardGridHalf>
-          </AboutMeWrapper>
+            {data.allMarkdownRemark.edges.map(({ node }) => (
+              <AboutMeWrapper>
+                <AboutMeCardGridFull title={node.frontmatter.title}>
+                  {node.frontmatter.position} <br />
+                  {node.frontmatter.dateStart} - {node.frontmatter.dateEnd}
+                </AboutMeCardGridFull>            
+              </AboutMeWrapper>
+            ))}
         </Inner>
       </Content>
       <Divider speed={0.1} offset={1} factor={2}>
@@ -648,3 +631,22 @@ const Index = () => (
 );
 
 export default Index;
+
+export const query = graphql`
+  query {
+    allMarkdownRemark(filter: {fileAbsolutePath: {regex: ".+/content/experiences/"}}, sort: {fields: frontmatter___order}) {
+      edges {
+        node {
+          frontmatter {
+            title
+            dateStart
+            dateEnd
+            position
+          }
+          html
+          excerpt
+        }
+      }
+    }
+  }
+`;
